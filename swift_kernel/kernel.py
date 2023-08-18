@@ -46,5 +46,5 @@ class SwiftKernel(Kernel):
                 'user_expressions': {},
                 }
 
-    def do_shutdown(self):
+    def do_shutdown(self, _):
         self.c.close()

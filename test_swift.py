@@ -1,5 +1,5 @@
 """
-Example use of jupyter_kernel_test, with tests for the default python3 kernel
+Example use of swift_kernel_test, with tests for the default python3 kernel
 (IPyKernel). This includes all the currently available tests.
 """
 
@@ -26,10 +26,13 @@ class SwiftKernelTests(jkt.KernelTests):
 
     # the normal file extension (including the leading dot) for this language
     # checked against language_info.file_extension in kernel_info_reply
-    file_extension = ".iswift"
+    file_extension = ".swift"
 
     # code which should write the exact string `hello, world` to STDOUT
-    code_hello_world = 'print("hello, world")'
+    code_hello_world = """let str = "hello, world" 
+    print(str)
+    print("ok")
+    """
 
 
 if __name__ == "__main__":
