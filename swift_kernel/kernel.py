@@ -1,4 +1,5 @@
 from ipykernel.kernelbase import Kernel
+import tempfile
 import pexpect
 import re
 
@@ -16,7 +17,7 @@ class SwiftKernel(Kernel):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        log = open("/var/log/swiftkernel.log", 'a')
+        log = tempfile.TemporaryFile()
         self.c = pexpect.spawnu('swift repl -no-color-diagnostics -suppress-warnings', echo=False, encoding="utf-8", logfile=log)
         self.c.expect(r"\s+[0-9]+\>(.*)", re.MULTILINE)
         
