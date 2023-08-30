@@ -29,9 +29,9 @@ class SwiftKernelTests(jkt.KernelTests):
     file_extension = ".swift"
 
     # code which should write the exact string `hello, world` to STDOUT
-    code_hello_world = """let str = "hello, world" 
-    print(str)
-    print("ok")
+    code_hello_world = """
+    print("hello, world")
+    print("")
     """
 
 

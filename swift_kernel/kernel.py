@@ -17,7 +17,8 @@ class SwiftKernel(Kernel):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        log = tempfile.TemporaryFile()
+        fd, path = tempfile.mkstemp()
+        log = open(path, 'a')
         self.c = pexpect.spawnu('swift repl -no-color-diagnostics -suppress-warnings', echo=False, encoding="utf-8", logfile=log)
         self.c.expect(r"\s+[0-9]+\>(.*)", re.MULTILINE)
         
