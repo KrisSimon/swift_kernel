@@ -41,6 +41,7 @@ jobs:
           swift --version
       - name: Test with kernel tester
         run: |
+          export TERM=xterm
           python -m unittest -v
       - name: Check Kernel
         run: |
